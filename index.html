@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>竞技荣光套装</title>
+		<link rel="stylesheet" href="css/comm.css" charset="utf-8">
+	</head>
+	<body>
+		<div
+			style="display: flex;align-items: center;justify-content: center;position: absolute;top: 0;left: 0;width: 100%;color: #fff;height: 42px;font-size: 30px;">
+			竞技荣光模拟抽奖
+		</div>
+		<div class="banner">
+			<video class="hd_video" id="myVideo" loop="" muted="" data-autoplay="" autoplay="autoplay">
+				<source src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/video2.mp4" type="video/mp4">
+				</source>
+			</video>
+			<video class="hd_video" id="myVideo1" muted="" data-autoplay="" autoplay="autoplay">
+				<source src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/video1.mp4" type="video/mp4">
+				</source>
+			</video>
+		</div>
+		<div class="g-con">
+			<!-- tab1 -->
+			<div class="g-wrap g-tab1 on">
+				<div class="part1">
+					<div class="title title1"></div>
+					<!-- 奖品栏 -->
+					<div class="lottery-box">
+						<!-- 中奖信息弹窗 -->
+						<div class="dialog" id="pop5" style="display:none">
+							<div class="tc-bg4">
+								<div class="tc-title tc-title5"></div>
+								<p class="tc-tip1">抽奖过程中请勿刷新页面或中断，请以实际礼包记录为准。</p>
+								<div class="prop-text awardName" id="dc">
+								</div>
+								<p class="tc-tip2 tc-tip2new">温馨提示：1：王者之石将在不会发放到您的游戏仓库；<br />
+									2：套装武器、角色、兑换券、扩展券及投掷武器（烟闪雷）等都将发送至暂存箱；<br />
+									3：各类卡片（荣光竞技等）请在本页面查看（兑换，拼团等）。谢谢您的理解和支持，由于数据量巨大，奖励道具限时将有所延迟，或可能存在不展示的情况，请以礼包记录为准。</p>
+							</div>
+							<a class="btn-close" href="javascript:;" title="关闭"></a>
+						</div>
+						<!-- 皮肤二选一弹窗 -->
+						<div class="dialog" id="pop6" style="display:none">
+							<div class="tc-bg5">
+								<div class="tc-prop">
+									<div class="prop-item">
+										<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/tc-prop1.png"
+											alt="">
+										<span>黑骑士-伏羲皮肤 兑换券x1</span>
+										<!-- 选中加类名on -->
+										<a class="btn12 selectNum1 selectNum11"
+											href="javascript:OUT.user.setSelectOn(1,1);"
+											onclick="PTTSendClick('btn','btn12-9',' 选择');"></a>
+									</div>
+									<div class="prop-item">
+										<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/tc-prop2.png"
+											alt="">
+										<span>火麒麟-盘古皮肤 兑换券x1</span>
+										<!-- 选中加类名on -->
+										<a class="btn12 selectNum1 selectNum12"
+											href="javascript:OUT.user.setSelectOn(1,2);"
+											onclick="PTTSendClick('btn','btn12-10',' 选择');"></a>
+									</div>
+								</div>
+							</div>
+							<a class="btn8" href="javascript:OUT.user.getManySelectOneGift(1);" title="关闭"></a>
+							<a class="btn-close" href="javascript:showDialog.hide()" title="关闭"></a>
+						</div>
+						<!-- 角色通用券二选一弹窗 -->
+						<div class="dialog" id="pop7" style="display:none">
+							<div class="tc-bg5">
+								<div class="tc-prop">
+									<div class="prop-item">
+										<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/tc-prop3.png"
+											alt="">
+										<span>稀有角色通用扩展栏位x1</span>
+										<!-- 选中加类名on -->
+										<a class="btn12 selectNum2 selectNum21"
+											href="javascript:OUT.user.setSelectOn(2,1);"
+											onclick="PTTSendClick('btn','btn12-9',' 选择');"></a>
+									</div>
+									<div class="prop-item">
+										<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/tc-prop4.png"
+											alt="">
+										<span>高级角色通用扩展栏位x1</span>
+										<!-- 选中加类名on -->
+										<a class="btn12 selectNum2 selectNum22"
+											href="javascript:OUT.user.setSelectOn(2,2);"
+											onclick="PTTSendClick('btn','btn12-10',' 选择');"></a>
+									</div>
+								</div>
+							</div>
+							<a class="btn8" href="javascript:OUT.user.getManySelectOneGift(2);" title="关闭"></a>
+							<a class="btn-close" href="javascript:showDialog.hide()" title="关闭"></a>
+						</div>
+
+						<!-- 十抽中奖信息弹窗 -->
+						<div class="dialog" id="pop9" style="display: none;">
+							<div class="tc-bg4 tc-bg7">
+								<div class="tc-title tc-title5"></div>
+								<p class="tc-tip1">领取过程中请勿刷新页面或中断，请以实际礼包记录为准。</p>
+								<div class="prop-text prop-text2 awardName" id="sl">
+								</div>
+								<p class="tc-tip2 tc-tip2new">温馨提示：1：王者之石将不会发到您的游戏仓库；<br />
+									2：套装武器、角色、兑换券、扩展券及投掷武器（烟闪雷）等都将发送至暂存箱；<br />
+									3：各类卡片（荣光竞技等）请在本页面查看（兑换，拼团等）。谢谢您的理解和支持，由于数据量巨大，奖励道具限时将有所延迟，或可能存在不展示的情况，请以礼包记录为准。</p>
+							</div>
+							<a class="btn-close" href="javascript:;" title="关闭"></a>
+						</div>
+
+						<div class="new_boxwzzs">
+							<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/box-img1.png"
+								class="newimghv" alt="" width="374" />
+						</div>
+						<div class="coupon-box">
+							<div class="coupon-num">无保底机制，纯凭运气<br />一次十,十次百</div>
+						</div>
+						<div class="btn-box1">
+							<a class="btn2" href="javascript:;"></a>
+							<a class="btn3" href="javascript:;"></a>
+						</div>
+						<div class="key-box">
+							<div class="key-num">抽奖次数:<span class="scoreId1467">0</span></div>
+							<div class="key-num">已有王者之石礼盒:<span class="scoreId1458">0</span></div>
+							<div class="light-num">
+								<div>
+									<div>皮肤兑换券二选一待领取：<span class="scoreId1469">X</span>次</div>
+								</div>
+								<div>
+									<div>扩展栏位二选一待领取：<span class="scoreId1470">X</span>次</div>
+								</div>
+							</div>
+						</div>
+						<a href="javascript:TGDialogS('pop12');" class="new_btnkqlh db">开启王者之石礼盒</a>
+
+					</div>
+				</div>
+				<div class="part3">
+					<div class="title title3">
+						<p>集字兑换：用户获得的不同类型字卡可以兑换为相应数量的“锋芒”卡</p>
+					</div>
+					<span class="new_imgyyy"></span>
+					<img class="cards-img" src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/cards-img.png"
+						alt="">
+					<div class="cardnum-box">
+						<div class="card-item1">
+							<div class="card-num">
+								你当前<br>拥有数：
+								<span class="scoreId1459">0</span>
+							</div>
+							<a class="btn7" id="j" href="javascript:;"></a>
+						</div>
+						<div class="card-item2">
+							<div class="card-num">
+								你当前<br>拥有数：
+								<span class="scoreId1460">0</span>
+							</div>
+							<a class="btn7" id="ji" href="javascript:;"></a>
+						</div>
+						<div class="card-item3">
+							<div class="card-num">
+								你当前<br>拥有数：
+								<span class="scoreId1461">0</span>
+							</div>
+							<a class="btn7" id="r" href="javascript:;"></a>
+						</div>
+						<div class="card-item4">
+							<div class="card-num">
+								你当前<br>拥有数：
+								<span class="scoreId1462">0</span>
+							</div>
+							<a class="btn7" id="g" href="javascript:;"></a>
+						</div>
+					</div>
+				</div>
+				<div class="part4out">
+					<div class="part4">
+						<div class="title title4">
+							<p>消耗对应数量的“锋芒”卡可以兑换相应奖励，<span>奖励将不会发往游戏仓库</span></p>
+						</div>
+						<div class="consume-num">剩余“ 锋芒”卡:<span class="scoreId1463">0</span></div>
+						<div class="prop-box">
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop1.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(1);"
+									onclick="PTTSendClick('btn','xh1',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard1">160</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop2.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(2);"
+									onclick="PTTSendClick('btn','xh2',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard2">200</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop3.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(3);"
+									onclick="PTTSendClick('btn','xh3',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard3">120</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop4.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(4);"
+									onclick="PTTSendClick('btn','xh4',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard4">20</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop5.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(5);"
+									onclick="PTTSendClick('btn','xh5',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard5">120</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop6.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(6);"
+									onclick="PTTSendClick('btn','xh6',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard6">120</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop7.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(7);"
+									onclick="PTTSendClick('btn','xh7',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard7">80</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop8.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(8);"
+									onclick="PTTSendClick('btn','xh8',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard8">60</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop9.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(9);"
+									onclick="PTTSendClick('btn','xh9',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard9">40</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop10.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(10);"
+									onclick="PTTSendClick('btn','xh10',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard10">40</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop11.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(11);"
+									onclick="PTTSendClick('btn','xh11',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard11">10</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop12.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(12);"
+									onclick="PTTSendClick('btn','xh12',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard12">5</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop13.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(13);"
+									onclick="PTTSendClick('btn','xh13',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard13">5</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop14.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(14);"
+									onclick="PTTSendClick('btn','xh14',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard14">10</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop15.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(15);"
+									onclick="PTTSendClick('btn','xh15',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard15">1</em></span> “锋芒”卡兑换</a>
+							</div>
+							<div>
+								<img src="https://game.gtimg.cn/images/cf/act/8315/a20220721znq/pc/prop16.png" alt="">
+								<a class="btn-bg" href="javascript:OUT.user.exchangeConfirm(16);"
+									onclick="PTTSendClick('btn','xh16',' 消耗 “锋芒”卡兑换');"><span>消耗<em
+											class="exchangeCard16">1</em></span> “锋芒”卡兑换</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="//ossweb-img.qq.com/images/js/jquery/jquery-1.9.1.min.js"></script>
+		<script>
+			//头图视频  
+			var elevideo = document.getElementById("myVideo1");
+			elevideo.addEventListener('ended', function() { //结束
+
+				$('#myVideo1').hide()
+			}, false);
+		</script>
+		<script type="text/javascript">
+			var gift = {
+				fmCard: 0,
+				jCard: 0,
+				jiCard: 0,
+				rCard: 0,
+				gCard: 0,
+				wzzs: 0,
+				count: 0
+			}
+			$(function() {
+				let random = new GLRandom(1, 19);
+				// 奖品栏
+				const giftList = [
+					"电竞教官-云悠悠",
+					"M200-竞技荣光",
+					"柯尔特-竞技荣光",
+					"擎天-竞技荣光",
+					"火麒麟-盘古皮肤 兑换券X1 或 黑骑士-伏羲皮肤 兑换券X1",
+					"裁决-雪莉杨",
+					"英雄级通用角色普通栏位扩展券X1",
+					"稀有角色通用扩展栏位X1 或 高级角色通用扩展栏位X1",
+					"高爆手雷-竞技荣光",
+					"烟雾弹-竞技荣光",
+					"闪光弹-竞技荣光",
+					"普通角色通用扩展栏位X1",
+					"王者之石礼盒X1",
+					"“竞”字卡",
+					"“技”字卡",
+					"“荣”字卡",
+					"“光”字卡",
+					"“锋芒”卡",
+				];
+				giftList.entries();
+				// 奖品对应概率
+				random.percentage = new Map([
+					[1, 0.003],
+					[2, 0.004],
+					[3, 0.004],
+					[4, 0.014],
+					[5, 0.002],
+					[6, 0.005],
+					[7, 0.008],
+					[8, 0.01],
+					[9, 0.01],
+					[10, 0.015],
+					[11, 0.015],
+					[12, 0.01],
+					[13, 0.148],
+					[14, 0.002],
+					[15, 0.01],
+					[16, 0.04],
+					[17, 0.3],
+					[18, 0.4],
+				]);
+				// 生成值区间
+				random.range();
+				// 单抽
+				$(".btn2").click(() => {
+					gift.count += 1;
+					setTimeout(() =>{
+						$("#pop5").css("display", "block");
+						let gifts = giftList[random.create() - 1];
+						random.checkGifts(gifts);
+						$("#dc").html(`<p>${gifts}</p>`);
+					}, 200);
+				})
+				// 十连
+				$(".btn3").click(() => {
+					gift.count += 10;
+					setTimeout(() =>{
+						$("#pop9").css("display", "block")
+						let p = ``;
+						for (let i = 0; i < 10; i++) {
+							let gifts = giftList[random.create() - 1];
+							random.checkGifts(gifts);
+							p += `<p>${gifts}</p>`;
+						}
+						$("#sl").html(p);
+					}, 200)
+				})
+				// 卡片兑换
+				$(".btn7").click(() => {
+					random.exchangeCard($(this).attr("activeElement").id);
+				})
+				// 中奖信息关闭
+				$(".btn-close").click(() => {
+					$(".dialog").css("display", "none");
+				})
+			})
+			class GLRandom {
+				exchangeGfits(){
+					
+				}
+				exchangeCard(id) {
+					if (id == "j") {
+						if(!gift.jCard){alert("“竞”字卡不足！");return}
+						for (let i = 0; i < gift.jCard; i++) {
+							gift.fmCard += 100;
+						}
+						gift.jCard = 0;
+						$(".scoreId1459").text(0);
+					}
+					if (id == "ji") {
+						if(!gift.jiCard){alert("“技”字卡不足！");return}
+						for (let i = 0; i < gift.jiCard; i++) {
+							gift.fmCard += 20;
+						}
+						gift.jiCard = 0;
+						$(".scoreId1460").text(0);
+					}
+					if (id == "r") {
+						if(!gift.rCard){alert("“荣”字卡不足！");return}
+						for (let i = 0; i < gift.rCard; i++) {
+							gift.fmCard += 5;
+						}
+						gift.rCard = 0;
+						$(".scoreId1461").text(0);
+					}
+					if (id == "g") {
+						if(!gift.gCard){alert("“光”字卡不足！");return}
+						for (let i = 0; i < gift.gCard; i++) {
+							gift.fmCard += 2;
+						}
+						gift.gCard = 0;
+						$(".scoreId1462").text(0);
+					}
+					alert("兑换成功!");
+					$(".scoreId1463").text(gift.fmCard);
+				}
+				checkGifts(gifts) {
+					if (gifts == "“锋芒”卡") {
+						gift.fmCard += 1;
+						$(".scoreId1463").text(gift.fmCard);
+					}
+					if (gifts == "“竞”字卡") {
+						gift.jCard += 1;
+						$(".scoreId1459").text(gift.jCard);
+					}
+					if (gifts == "“技”字卡") {
+						gift.jiCard += 1;
+						$(".scoreId1460").text(gift.jiCard);
+					}
+					if (gifts == "“荣”字卡") {
+						gift.rCard += 1;
+						$(".scoreId1461").text(gift.rCard);
+					}
+					if (gifts == "“光”字卡") {
+						gift.gCard += 1;
+						$(".scoreId1462").text(gift.gCard);
+					}
+					if(gifts == "王者之石礼盒X1"){
+						gift.wzzs += 1;
+						$(".scoreId1458").text(gift.wzzs);
+					}
+					$(".scoreId1467").text(gift.count);
+				}
+				/**
+				 * 构造函数
+				 * @param {number} min  最小整数值
+				 * @param {number} max  最大整数值
+				 * @param {Map} percentage 概率数 [值,百分比]
+				 */
+				constructor(min, max, percentage = new Map()) {
+					// 取整
+					this.min = Math.trunc(min);
+					this.max = Math.trunc(max);
+					// 分成100份
+					this.MATH_RANGE = 100;
+					// 初始化Map
+					this.percentage = percentage;
+				}
+				get percentage() {
+					if (!this._percentage) {
+						this._percentage = new Map();
+					}
+					return this._percentage;
+				}
+				/**
+				 * 分配比例
+				 * @param {Map} map 设置 值-百分比
+				 */
+				set percentage(map) {
+					let result = Array.from(map.values()).reduce((p, v, a) => {
+						return p - v;
+					}, 1);
+					for (let i = this.min; i < this.max; i++) {
+						if (map.has(i)) {
+							this.percentage.set(i, map.get(i));
+						} else {
+							this.percentage.set(i, result / (this.max - this.min - map.size));
+						}
+					}
+				}
+				/**
+				 * 根据比例生成取值范围
+				 */
+				range() {
+			 	let [start, random, keys] = [0, this.MATH_RANGE, Array.from(this.percentage.keys())];
+					for (let i = 0; i < keys.length; i++) {
+						let temp = this.percentage.get(keys[i]);
+						this.percentage.set(keys[i], [start, start += temp * random]);
+					}
+				}
+				/**
+				 * 生成随机数
+				 */
+				create() {
+					let num = Math.random() * this.MATH_RANGE;
+					for (let data of this.percentage.entries()) {
+						if (num >= data[1][0] && num < data[1][1]) {
+							return data[0];
+						}
+					}
+					return null;
+				}
+			}
+		</script>
+	</body>
+</html>
