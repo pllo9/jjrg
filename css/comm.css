@@ -120,13 +120,13 @@ html,body{overflow-x: hidden;}
 .g-wrap .part1 .lottery-box .box-img{position:absolute;left:242px;top:787px;width:234px;height:155px;cursor:pointer}
 .g-wrap .part1 .lottery-box .box-img>img{position:absolute;left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);top:-230px;display:none}
 .g-wrap .part1 .lottery-box .box-img:hover>img{display:block}
-.g-wrap .part1 .lottery-box .coupon-box{margin-top:340px;text-align:center}
+.g-wrap .part1 .lottery-box .coupon-box{margin-top:165px;text-align:center}
 .g-wrap .part1 .lottery-box .coupon-box .record{display:inline-block;vertical-align:top;text-decoration:underline;font-size:22px;color:#7dd4fe;margin:0 87px}
 .g-wrap .part1 .lottery-box .coupon-box .coupon-num{display:inline-block;vertical-align:top;font-size:22px;color:#7dd4fe;margin:0 87px}
 .g-wrap .part1 .lottery-box .coupon-box .coupon-num>span{color:#fffac3}
-.g-wrap .part1 .lottery-box .btn-box1{margin-top:60px;text-align:center}
+.g-wrap .part1 .lottery-box .btn-box1{margin-top:10px;text-align:center}
 .g-wrap .part1 .lottery-box .btn-box1>a{display:inline-block;vertical-align:top;margin:0 33px}
-.g-wrap .part1 .lottery-box .key-box{margin-top:80px;text-align:center;font-size:0}
+.g-wrap .part1 .lottery-box .key-box{margin-top:5px;text-align:center;font-size:0}
 .g-wrap .part1 .lottery-box .key-box>div{text-align:center;padding:0 30px;box-sizing:border-box;font-size:22px;color:#7dd4fe}
 .g-wrap .part1 .lottery-box .key-box>div>span{color:#fffac3}
 .g-wrap .part1 .lottery-box .key-box .light-num{margin-top:50px;text-align:center;font-size:0;padding:0 220px;box-sizing:border-box}
